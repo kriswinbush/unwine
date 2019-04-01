@@ -9,8 +9,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SendEmail from './SendEmail';
-//import SendNotification from './SendNotification';
-//import AddBlogPost from './AddBlogPost';
+import SendNotification from './SendNotification';
+import AddBlogPost from './AddBlogPost';
 
 import Grid from '@material-ui/core/Grid';
 const styles = theme => ({
@@ -22,7 +22,7 @@ const styles = theme => ({
 });
 
 class Dashboard extends Component {
-    state = { value: 0 };
+    state = { value: 2 };
     handleChange = (event, value) => this.setState({ value });
   
     render() {
@@ -44,15 +44,15 @@ class Dashboard extends Component {
                     <AppBar position="static">
                         <Tabs value={value} onChange={this.handleChange}>
                             <Tab label="Send e-mail" />
-                            {/* <Tab label="Send Notification" />
-                                <Tab label="Add Blog Post" /> */}
+                            <Tab label="Send Notification" />
+                            <Tab label="Add Blog Post" />
                         </Tabs>
                     </AppBar>
                 </Grid>
                 <Grid item xs={12}>
                     {value === 0 && <SendEmail />}
-                    { /* {value === 1 && <SendNotification />}
-                        {value === 2 && <AddBlogPost />} */ }
+                    {value === 1 && <SendNotification />}
+                    {value === 2 && <AddBlogPost />}
                 </Grid>
             </Grid> 
         )

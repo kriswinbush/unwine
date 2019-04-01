@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Grid from '@material-ui/core/Grid';
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core';
+import RotateImage  from "./RotateImage";
 const styles = {
     root: {
         flexGrow: 1
@@ -77,19 +78,22 @@ class ImageUpload extends Component {
         >
             <Grid item xs={12}>
                 <input 
-                {...this.props}
-                label="blogUploadImage" 
-                id="blogUploadImage" 
-                
-                className={classes.fileInput} 
-                type="file" 
-                onChange={(e)=>this._handleImageChange(e)} 
-            />
+                    {...this.props}
+                    label="blogUploadImage" 
+                    id="blogUploadImage" 
+                    
+                    className={classes.fileInput} 
+                    type="file" 
+                    onChange={(e)=>this._handleImageChange(e)} 
+                />
             </Grid>
             <Grid item xs={12}>
                 <div className={classes.imgPreview}>
                     {$imagePreview}
                 </div>
+            </Grid>
+            <Grid item xs={12}>
+                <RotateImage file={this.state.file} />
             </Grid>
         </Grid>
       )
