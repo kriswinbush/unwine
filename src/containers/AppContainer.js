@@ -25,7 +25,7 @@ class AppContainer extends Component {
                 <div className={classes.root}>
                     <AppBar />
                     <Switch>
-                        <Route exact path="/"  component={Home} />
+                        <Route exact path="/"  component={Dashboard /* Home */} />
                         <Route path="/login" component={Login} />
                         <Route exact path="/dashboard" component={ userIsAuthed(userIsAdmin(Dashboard)) } />
                         <Route exact path="/gallery" component={Gallery} />

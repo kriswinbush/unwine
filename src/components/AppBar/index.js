@@ -18,7 +18,7 @@ import styles from './styles';
 import { withFirebase } from 'react-redux-firebase';
 import Drawer from '@material-ui/core/Drawer';
 
-//import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
@@ -51,9 +51,9 @@ class AppBarComponent extends Component {
             <div className={classes.root}>
                 <AppBar position="fixed" color="default">
                     <Toolbar>
-                        {/* <IconButton onClick={this.toggleDrawer('left', true)} className={classes.menuButton} color="inherit" aria-label="Menu">
+                        <IconButton onClick={this.toggleDrawer('left', true)} className={classes.menuButton} color="inherit" aria-label="Menu">
                             <MenuIcon />
-                        </IconButton> */}
+                        </IconButton>
                         <Typography className={classes.flex}>
                             <img 
                                 className={classes.logo}
