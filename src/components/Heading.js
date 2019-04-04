@@ -6,7 +6,17 @@ const styles = {
     root: {
         height:"100vh",
         width: "100%",
-        backgroundColor:"rgba(255,255,255, 1.0)"
+        backgroundColor:"rgba(255,255,255, 1.0)",
+        backgroundImage:"url(/assets/images/code.png)"
+    },
+    flexContainer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+        
+    },
+    flexInset: {
+        flex: 0
     },
     image: {
         height: "auto",
@@ -25,7 +35,11 @@ class Heading extends Component {
                     justify="center"
                 >
                     <Grid item xs={11}>
-                        <img className={classes.image} src="/assets/images/unwine_logo_mask.png" alt="unwine logo" />        
+                        <div className={classes.flexContainer}>
+                            <div className={classes.flexInset} >
+                                <img src="/assets/images/rgb-pdi-logo.svg" alt="Painted Dog Logo" />
+                            </div>
+                        </div>       
                     </Grid>
                 </Grid>
         )

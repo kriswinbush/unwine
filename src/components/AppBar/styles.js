@@ -7,7 +7,7 @@ const styles = theme => ({
     },
     logo: {
         height: "auto",
-        width: "150px"
+        width: "50px"
     },
     menuButton: {
 

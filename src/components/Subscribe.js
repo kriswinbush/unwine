@@ -8,7 +8,7 @@ import SignUp from './SignUp';
 const styles = {
     root: {
       flexGrow: 1,
-      backgroundColor:"rgba(163,60,96, 1.0)" //rgba(218,55,50, 1.0)
+      backgroundColor:"rgba(255, 255, 255, 1.0)" //rgba(218,55,50, 1.0)
     }
 };
 
@@ -18,7 +18,7 @@ export class Subscribe extends Component {
         const { classes } = this.props;
         return (
             <Grid container spacing={0} className={classes.root}>
-                <Grid item xs={12} md={6}> 
+                {/* <Grid item xs={12} md={6}> 
                     <Typography variant="display2" gutterBottom align="center">
                         unWine Lounge Event
                     </Typography>
@@ -32,8 +32,8 @@ export class Subscribe extends Component {
                         Unwine has more in store for you. 
                         Join our newsletter so we can keep you up to date.
                     </Typography>
-                </Grid>
-                <Grid item xs={12} md={6}> 
+        </Grid> */}
+                <Grid item xs={12} md={12}> 
                     <SignUp />
                 </Grid>
             </Grid>

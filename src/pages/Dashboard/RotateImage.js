@@ -1,15 +1,15 @@
 import React, {Component } from 'react'
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import { resolve } from 'url';
+// import { resolve } from 'url';
 
 const styles = {
     root: {
@@ -33,24 +33,24 @@ class RotateImage extends Component {
         return new Promise((resolve, reject) => {
             var reader = new FileReader();
             reader.onload = function (e) {
-
+                console.log(e.target.result);
                 var view = new DataView(e.target.result);
-                if (view.getUint16(0, false) != 0xFFD8) reject(-2);
+                if (view.getUint16(0, false) !== 0xFFD8) reject(-2);
                 var length = view.byteLength, offset = 2;
                 while (offset < length) {
                     var marker = view.getUint16(offset, false);
                     offset += 2;
-                    if (marker == 0xFFE1) {
-                        if (view.getUint32(offset += 2, false) != 0x45786966) reject(-1);
-                        var little = view.getUint16(offset += 6, false) == 0x4949;
+                    if (marker === 0xFFE1) {
+                        if (view.getUint32(offset += 2, false) !== 0x45786966) reject(-1);
+                        var little = view.getUint16(offset += 6, false) === 0x4949;
                         offset += view.getUint32(offset + 4, little);
                         var tags = view.getUint16(offset, little);
                         offset += 2;
                         for (var i = 0; i < tags; i++)
-                            if (view.getUint16(offset + (i * 12), little) == 0x0112)
+                            if (view.getUint16(offset + (i * 12), little) === 0x0112)
                                 resolve(view.getUint16(offset + (i * 12) + 8, little));
                     }
-                    else if ((marker & 0xFF00) != 0xFF00) break;
+                    else if ((marker & 0xFF00) !== 0xFF00) break;
                     else offset += view.getUint16(offset, false);
                 }
                 reject(-1);
@@ -58,6 +58,7 @@ class RotateImage extends Component {
             reader.readAsArrayBuffer(this.state.raw);
         })
     }
+
     rotateImage(srcOrientation) {
         return new Promise((resolve, reject) => {
         var img = new Image();    
@@ -123,6 +124,7 @@ class RotateImage extends Component {
         if(prevProps.file !== this.props.file) {
             if(this.props.file) {
                 let { file } = this.props;
+                console.log(typeof file);
                 this.setState({raw: file})
                 let reader = new FileReader();
                 reader.readAsDataURL(file)
@@ -133,10 +135,14 @@ class RotateImage extends Component {
         }
     }
     handleRotateLeft = async () => {
+        try {
        let srcOrientation = await this.getSourceOrientation()
         console.log(srcOrientation);
         let image = await this.rotateImage(srcOrientation)
         console.log(image)
+        } catch(e) {
+            console.log(e)
+        }
         
     }
     handleRotateRight = () => {
@@ -176,12 +182,11 @@ class RotateImage extends Component {
         return (
             <div className={classes.root}>
                 <Dialog
-                    fullScreen
-                        open={this.state.open}
-                        onClose={this.handleClose}
-                        aria-labelledby="image-rotate"
-                        onEntered={this.handleEntered}
-                    >
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="image-rotate"
+                    onEntered={this.handleEntered}
+                >
                     <canvas ref="cvs" className={classes.sizeCvs}></canvas>
                     <canvas ref="cvs2" className={classes.sizeCvs}></canvas>
                     <DialogActions>

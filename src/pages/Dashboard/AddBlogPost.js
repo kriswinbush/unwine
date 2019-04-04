@@ -12,7 +12,7 @@ import ImageUpload from './ImageUpload';
 const styles = {
     root: {
         flexGrow: 1,
-       /*  margin: "20px" */
+        padding: "20px"
     },
     textField: {
         width: "100%"
@@ -36,10 +36,11 @@ const styles = {
 class AddBlogPost extends Component {
     handleSubmit = (values) => {
         const blogPost = { ...values, blogDate: Date.now() };
+
         //add author auth.currentUser
         if(blogPost.blogUploadImage) {
             let image = blogPost.blogUploadImage;
-            blogPost.blogUploadImage = 'https://www.google.com/images/spin-32.gif';
+            // blogPost.blogUploadImage = 'https://www.google.com/images/spin-32.gif';
             this.props.firebase.push('blogPosts', blogPost)
                 .then(data => {
                     let filePath = `blogposts/${data.key}/${image.name}`;
@@ -56,6 +57,7 @@ class AddBlogPost extends Component {
         }
         this.props.reset();
     }
+
     render() {
         const { classes, handleSubmit } = this.props; 
         return (

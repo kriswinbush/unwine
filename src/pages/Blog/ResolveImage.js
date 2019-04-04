@@ -20,9 +20,15 @@ class ResolveImage extends Component {
     }
     componentDidMount() {
         const { firebase: {storage} } = this.props;
-        storage().refFromURL(this.props.post.blogUploadImage).getDownloadURL()
+
+        if(this.props.post.blogUploadImage) {
+            storage().refFromURL(this.props.post.blogUploadImage).getDownloadURL()
             .then(url => this.setState({imageUrl: url}))
+        } else {
+            this.setState({imageUrl: 'assets/images/code.png'})
+        }
     }
+
     render() {
         const { blogTitle, classes } = this.props;
         return (<img className={classes.image} src={this.state.imageUrl} alt={blogTitle} />)

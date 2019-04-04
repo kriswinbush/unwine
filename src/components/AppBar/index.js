@@ -57,7 +57,7 @@ class AppBarComponent extends Component {
                         <Typography className={classes.flex}>
                             <img 
                                 className={classes.logo}
-                                src='/assets/images/unwine_logo_transparent_crop.png'
+                                src='/assets/images/rgb-pdi-logo.svg'
                                 alt="Logo" 
                             />
                         </Typography>

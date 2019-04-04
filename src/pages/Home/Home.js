@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import Invited from '../../components/Invited';
 import Grid from '@material-ui/core/Grid';
+import BlogBlurb from '../Blog/BlogBlurb';
 
 const styles = {
     root: {
@@ -22,10 +23,11 @@ class Home extends Component {
                 <Grid item xs={12}>
                     <Heading />
                 </Grid>
-                <Grid item xs={12} md={10}>
-                    <Invited />
+                <Grid item xs={12} md={6}>
+                    {/* <Invited /> */}
+                    <BlogBlurb />
                 </Grid>
-                <Grid item xs={12} md={10}>
+                <Grid item xs={12} md={6}>
                     <Subscribe />
                 </Grid>
                 <Grid item xs={12}>

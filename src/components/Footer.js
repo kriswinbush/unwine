@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import compose from 'recompose/compose';
-//import BlogBlurb from '../pages/Blog/BlogBlurb';
+import BlogBlurb from '../pages/Blog/BlogBlurb';
 import Socialbar from './SocialBar';
 
 const styles = {
@@ -34,26 +34,32 @@ class Footer extends Component {
                 <Grid item xs={12} >
 
                     <Grid className={classes.contact} container spacing={0} align="center" alignItems="flex-end">
-                        <Grid item xs={12}>
+                        {/*<Grid item xs={12}>
                             <Typography className={classes.text} variant="display1" gutterBottom align="center">
                                 Contact Us
                             </Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography variant="headline" gutterBottom align="center">unWine, Inc.</Typography>
-                            <Typography variant="subheading" color="textSecondary" gutterBottom align="center">ccross@unwinelounge.com</Typography>
-                            <Typography variant="subheading" color="textSecondary" gutterBottom align="center">951-443-8120</Typography>
+        </Grid> */}
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="headline" gutterBottom align="center">Kris J. Winbush</Typography>
+                            <Typography variant="subheading" color="textSecondary" gutterBottom align="center">kris.winbush@gmail.com</Typography>
+                            <Typography variant="subheading" color="textSecondary" gutterBottom align="center">619-248-6886 </Typography>
                                 
                             <Typography variant="body2" gutterBottom align="center">
-                                23905 Clinton Keith Road<br/>
-                                Suite 114-278<br/>
-                                Wildomar, CA 92595<br/>
+                                3620 South Barcelona Street<br/>
+                                Unit 3<br/>
+                                Spring Valley, Ca 91977<br/>
                             </Typography>
                         </Grid>
 
-                        <Grid item xs={12}> 
+                        <Grid item xs={12} md={4}> 
                             <Socialbar />
                         </Grid>
+                        <Grid item xs={12} md={4}>
+                    {/* <Typography className={classes.text} variant="display1" gutterBottom align="center">
+                        Recent Posts
+                    </Typography>
+    <BlogBlurb /> */}
+                </Grid>
                     </Grid>
                 </Grid>
                     

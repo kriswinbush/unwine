@@ -81,7 +81,6 @@ class ImageUpload extends Component {
                     {...this.props}
                     label="blogUploadImage" 
                     id="blogUploadImage" 
-                    
                     className={classes.fileInput} 
                     type="file" 
                     onChange={(e)=>this._handleImageChange(e)} 
@@ -93,7 +92,7 @@ class ImageUpload extends Component {
                 </div>
             </Grid>
             <Grid item xs={12}>
-                <RotateImage file={this.state.file} />
+                {/* <RotateImage file={this.state.file} /> */}
             </Grid>
         </Grid>
       )
