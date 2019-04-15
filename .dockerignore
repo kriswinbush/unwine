@@ -1,0 +1,8 @@
+node_modules
+build
+functions
+.firebaserc
+.vscode
+database.rules.json
+firebase.json
+storage.rules

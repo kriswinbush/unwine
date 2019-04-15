@@ -19,7 +19,7 @@ const styles = theme => ({
     list: {
         position: 'relative',
         overflow: 'auto',
-        maxHeight: 300,   
+        maxHeight: 300
     },
     button: {
         width: "100%"
@@ -31,10 +31,10 @@ class BlogBlurb extends Component {
         const { classes, blogPosts } = this.props;
         return (
             <Grid container spacing={16} className={classes.root} align="center" justify="center" alignItems="flex-end">
-                <Grid item xs={11}>
+                <Grid item xs={12}>
                     <Button variant="raised" color="primary" className={classes.button} component={Link} to={"/blog"}>unWine Lounge blog</Button>
                 </Grid>
-                <Grid  item xs={11}>
+                <Grid  item xs={12}>
                     <List className={classes.list} >
                         { blogPosts ? (Object.values(blogPosts).map( (post, index) => {       
                             return (

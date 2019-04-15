@@ -28,7 +28,7 @@ class Footer extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Grid container spacing={16} className={classes.root}>
+            <Grid container spacing={0} className={classes.root}>
 
 
                 <Grid item xs={12} >
